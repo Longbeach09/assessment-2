@@ -8,7 +8,21 @@
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-/// TODO: replace this with your code
+const auth = document.querySelectorAll("#auth");
+let lolo = "Log in";
+function play(evt) {
+  evt.target.innerText = lolo;
+  if (lolo === "Log in") {
+    lolo = "Log out";
+  } else {
+    lolo = "Log in";
+  }
+  const logInlogout = document.querySelector("#auth");
+  logInlogout.innerText = lolo;
+}
+for (const id of ids) {
+  id.addEventListener("click", play);
+}
 
 // Send an alert
 //
