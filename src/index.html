@@ -11,55 +11,48 @@
     <form>
       <label for="cname">Character name:</label><br>
       <input type="text" id="cname" name="cname"><br>
-    </form>
-    <input type="radio" id="Jedi" name="Jedi" value="Jedi">
-    <label for="Jedi">Jedi</label><br>
-    <input type="radio" id="Jedi" name="Sith" value="Sith">
-    <label for="Sith">Sith</label><br>
-    </label>
-    <form label for="cars">Choose a lightsaber:</label>
+
+      <label for="alignment">Alignment:</label><br>
+      <input type="radio" id="Jedi" name="alignment" value="Jedi">
+      <label for="Jedi">Jedi</label><br>
+      <input type="radio" id="Sith" name="alignment" value="Sith">
+      <label for="Sith">Sith</label><br>
+
+      <label for="lightSaberColor">Choose a lightsaber color:</label><br>
       <select name="lightSaberColor" id="lightSaberColor">
-        <option value="volvo">blue</option>
-        <option value="saab">green</option>
-        <option value="opel">red</option>
-        <option value="audi">purple</option>
-      </select>
-      <br><br>
-      
-      
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          <option value="red">Red</option>
+          <option value="purple">Purple</option>
+      </select><br><br>
+
       <input type="submit" value="Submit">
+  </form>
 
-    <table>
+  <table>
       <tr>
-        <th>Planet</th>
-        <th>Enviorment </th>
-        <th>Population </th>
+          <th>Character Name</th>
+          <th>Alignment</th>
+          <th>Lightsaber Color</th>
       </tr>
       <tr>
-        <td>Tatooine</td>
-        <td>Desert</td>
-        <td>200,000</td>
+          <td>Obi-Wan Kenobi</td>
+          <td>Jedi</td>
+          <td>Blue</td>
       </tr>
       <tr>
-        <td>Hoth</td>
-        <td>Ice</td>
-        <td>0</td>
+          <td>Darth Vader</td>
+          <td>Sith</td>
+          <td>Red</td>
       </tr>
       <tr>
-        <td>Endor </td>
-        <td>Forest </td>
-        <td>30,000,000</td>
+          <td>Yoda</td>
+          <td>Jedi</td>
+          <td>Green</td>
       </tr>
-      <tr>
-        <td>Mustafar</td>
-        <td>Lava</td>
-        <td>10,000</td>
-      </tr>
-    </table>
-
-    </form>
+  </table>
     <style>
-      table, th, td {
+        table, th, td {
         border: 1px solid white;
         
       }
@@ -67,10 +60,5 @@
   padding: 5px;
   
 }
-table.space {
-	margin-top: 10px;
-	
-  }
-      </style>
   </body>
 </html>

@@ -79,7 +79,35 @@ const EN_PIRATE_LOOKUP = {
   hello: "ahoy",
 };
 
-function translateToPirateTalk(phrase) {}
+function translateToPirateTalk(phrase) {
+  const EN_PIRATE_LOOKUP = {
+    excuse: "avast",
+    sir: "matey",
+    is: "be",
+    restroom: "head",
+    student: "swabbie",
+    friend: "matey",
+    restaurant: "galley",
+    your: "yer",
+    are: "be",
+    my: "me",
+    hotel: "fleabag inn",
+    hello: "ahoy",
+  };
+
+  function translateToPirateTalk(phrase) {
+    const words = phrase.split(" ");
+
+    // Translate each word using the lookup object in the thing
+    const translatedWords = words.map((word) => {
+      // Check if the word is in the lookup object, if yes, translate, else keep it unchanged
+      return translateToPirateTalk[word] || word;
+    });
+
+    const translatedPhrase = translatedWords.join(" ");
+    return translatedPhrase;
+  }
+}
 
 // Return the number of occurrences of each word in a string.
 // This function doesn't handle punctuation and is case-sensitive, so you can
@@ -88,7 +116,24 @@ function translateToPirateTalk(phrase) {}
 // Ex.:
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
-function wordCount(str) {}
+function wordCount(str) {
+  const words = str.split(" ");
+
+  // Create an object to store word counts
+  const wordCounts = {};
+
+  // Iterate through the words
+  for (const word of words) {
+    // If the word is already in the object, increment its count, otherwise set it to 1
+    if (wordCounts[word]) {
+      wordCounts[word]++;
+    } else {
+      wordCounts[word] = 1;
+    }
+  }
+
+  return wordCounts;
+}
 
 // Given an object representing a bug, return true if the given bug is
 // available in the given month.
