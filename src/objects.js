@@ -155,7 +155,22 @@ function wordCount(str) {
 //     }
 //   }, 1);
 //   => true
-function isBugAvailable(bug, month) {}
+function isBugAvailable(bug, month) {
+  // Check if the given month is included in the bug's availability
+  return bug.availability.months.includes(month);
+}
+
+// Example usage:
+const bug = {
+  name: "common butterfly",
+  availability: {
+    rarity: "common",
+    months: [9, 10, 11, 12, 1, 2, 3, 4, 5, 6],
+  },
+};
+
+console.log(isBugAvailable(bug, 1)); // Output: true
+console.log(isBugAvailable(bug, 7)); // Output: false
 
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the
@@ -198,7 +213,28 @@ function isBugAvailable(bug, month) {}
 //     12: [],
 //   }
 
-function buildBugHuntCalendar(bugs) {}
+function buildBugHuntCalendar(bugs) {
+  const calendar = {};
+
+  // Iterate through each bug
+  for (const bug of bugs) {
+    const name = bug.name;
+    const months = bug.availability.months;
+
+    // Iterate through each month in the bug's availability
+    for (const month of months) {
+      // Create a new array for the month if it doesn't exist in the calendar
+      if (!calendar[month]) {
+        calendar[month] = [];
+      }
+
+      // Add the bug name to the month's array
+      calendar[month].push(name);
+    }
+  }
+
+  return calendar;
+}
 
 export {
   buildBugHuntCalendar,
