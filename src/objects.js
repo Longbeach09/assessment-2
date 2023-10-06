@@ -80,34 +80,21 @@ const EN_PIRATE_LOOKUP = {
 };
 
 function translateToPirateTalk(phrase) {
-  const EN_PIRATE_LOOKUP = {
-    excuse: "avast",
-    sir: "matey",
-    is: "be",
-    restroom: "head",
-    student: "swabbie",
-    friend: "matey",
-    restaurant: "galley",
-    your: "yer",
-    are: "be",
-    my: "me",
-    hotel: "fleabag inn",
-    hello: "ahoy",
-  };
+  const words = phrase.split(" ");
 
-  function translateToPirateTalk(phrase) {
-    const words = phrase.split(" ");
+  // Translate each word using the lookup object
+  const translatedWords = words.map((word) => {
+    // Check if the word is in the lookup object, if yes, translate, else keep it unchanged
+    return EN_PIRATE_LOOKUP[word] || word;
+  });
 
-    // Translate each word using the lookup object in the thing
-    const translatedWords = words.map((word) => {
-      // Check if the word is in the lookup object, if yes, translate, else keep it unchanged
-      return translateToPirateTalk[word] || word;
-    });
-
-    const translatedPhrase = translatedWords.join(" ");
-    return translatedPhrase;
-  }
+  const translatedPhrase = translatedWords.join(" ");
+  return translatedPhrase;
 }
+
+// Example usage:
+const translated = translateToPirateTalk("excuse me sir where is the restroom");
+console.log(translated); // Output: 'avast me matey where be the head'
 
 // Return the number of occurrences of each word in a string.
 // This function doesn't handle punctuation and is case-sensitive, so you can
