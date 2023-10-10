@@ -8,21 +8,24 @@
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-const auth = document.querySelectorAll("#auth");
+// Define the element with the ID "auth"
+const auth = document.querySelector("#auth");
 let lolo = "Log in";
+
 function play(evt) {
-  evt.target.innerText = lolo;
+  // Toggle the text content of the "auth" element
+  auth.innerText = lolo;
+
+  // Toggle the value of lolo
   if (lolo === "Log in") {
     lolo = "Log out";
   } else {
     lolo = "Log in";
   }
-  const logInlogout = document.querySelector("#auth");
-  logInlogout.innerText = lolo;
 }
-for (const id of ids) {
-  id.addEventListener("click", play);
-}
+
+// Add a click event listener to the "auth" element
+auth.addEventListener("click", play);
 
 // Send an alert
 //
@@ -30,9 +33,11 @@ for (const id of ids) {
 //
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
-
-/// TODO: replace this with your code
-
+document.querySelector("#send-alert").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const alertText = document.querySelector("#alert-message").value;
+  alert(alertText);
+});
 // Add an item
 //
 // This is a pretty silly feature -- when a user clicks on the
@@ -48,7 +53,12 @@ for (const id of ids) {
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
-/// TODO: replace this with your code
+document.querySelector("#item-adder").addEventListener("dblclick", (e) => {
+  const node = document.createElement("li");
+  const textNode = document.createTextNode("Item");
+  node.appendChild(textNode);
+  document.getElementById("list").appendChild(node);
+});
 
 // Change colors
 //
