@@ -69,8 +69,19 @@ document.querySelector("#item-adder").addEventListener("dblclick", (e) => {
 // Clicking on "Turn Stuff Red" should make text red and clicking on "Turn
 // Stuff Blue" should make text blue.
 
-/// TODO: replace this with your code
+document.querySelector("#blue").addEventListener("click", () => {
+  const turningBlue = document.querySelectorAll(".changes-colors ");
+  for (const element of turningBlue) {
+    element.style.color = "blue";
+  }
+});
 
+document.querySelector("#red").addEventListener("click", () => {
+  const turningRed = document.querySelectorAll(".changes-colors");
+  for (const element of turningRed) {
+    element.style.color = "red";
+  }
+});
 // Calculate factorial
 //
 // The factorial of a number is the product of an integer and all the integers
@@ -85,10 +96,8 @@ document.querySelector("#item-adder").addEventListener("dblclick", (e) => {
 //   - gets whatever number is inside the input field
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
+// Calculate factorial
 
-/// TODO: replace this with your code
-
-// Validate a form
 //
 // This form is used to collect word recommendations from users. However, it
 // only accepts words that are at least four characters long. Add code that
@@ -102,5 +111,3 @@ document.querySelector("#item-adder").addEventListener("dblclick", (e) => {
 // If the text is less than three characters long, change
 // the feedback text to say "The word must be at least 4 characters long." and
 // change the color of the text to red..
-
-/// TODO: replace this with your code
