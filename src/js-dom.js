@@ -97,8 +97,32 @@ document.querySelector("#red").addEventListener("click", () => {
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 // Calculate factorial
+function calculateFactorial(number) {
+  if (number === 0 || number === 1) {
+    return 1;
+  } else {
+    return number * calculateFactorial(number - 1);
+  }
+}
 
-//
+// Event listener for the "calculate" button
+document.querySelector("#calculate-button").addEventListener("click", () => {
+  // Get the input value
+  const inputValue = parseInt(document.querySelector("#factorial-input").value);
+
+  // Check if the input is a positive integer
+  if (Number.isInteger(inputValue) && inputValue >= 0) {
+    // Calculate factorial
+    const factorialResult = calculateFactorial(inputValue);
+
+    // Displayin g the end result 
+//     document.querySelector("#result").textContent = `Factorial: ${factorialResult}`;
+//   } else {
+//     // Display an error message for invalid input
+//     document.querySelector("#result").textContent = "Please enter a valid positive integer.";
+//   }
+// });
+// //
 // This form is used to collect word recommendations from users. However, it
 // only accepts words that are at least four characters long. Add code that
 // checks the length of the text entered into the <textarea> when the user
@@ -111,3 +135,24 @@ document.querySelector("#red").addEventListener("click", () => {
 // If the text is less than three characters long, change
 // the feedback text to say "The word must be at least 4 characters long." and
 // change the color of the text to red..
+
+document.querySelector("#word-recommendation-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  // Get the text from the textarea
+  const recommendationText = document.querySelector("#word-recommendation-text").value;
+
+  // Get the feedback element
+  const feedbackElement = document.querySelector("#word-recommendation-feedback");
+
+  // Check the length of the text
+  if (recommendationText.length >= 3) {
+    // Display thanks message in green
+    feedbackElement.textContent = "Thanks for your submission!";
+    feedbackElement.style.color = "green";
+  } else {
+    // Display error message in red
+    feedbackElement.textContent = "The word must be at least 4 characters long.";
+    feedbackElement.style.color = "red";
+  }
+});
